@@ -602,25 +602,29 @@ class ModManager(QWidget):
         try:
             #first we modify the gameinfo.gi file (just replaces it with the modified version with +3 lines to support modding)
             game_info_file_path = os.path.join(self.current_game_folder, "game", "citadel", "gameinfo.gi")
-            with open(game_info_file_path, "r") as f:
-                lines = f.readlines()
-            target = "Game_Languagecitadel_*LANGUAGE*" #the edited lines must come after this one
-            edited_lines = {"\t\t\tMod\t\t\t\t\tcitadel\n": False, "\t\t\tWrite\t\t\t\tcitadel\n": False, "\t\t\tGame\t\t\t\tcitadel/addons\n": False}
+            if os.path.exists(game_info_file_path):
+                with open(game_info_file_path, "r") as f:
+                    lines = f.readlines()
+                target = "Game_UILanguagecitadel_*LANGUAGE*" #the edited lines must come after this one
+                edited_lines = {"\t\t\tMod\t\t\t\t\tcitadel\n": False, "\t\t\tWrite\t\t\t\tcitadel\n": False, "\t\t\tGame\t\t\t\tcitadel/addons\n": False}
 
-            current_index = 0
-            edit_index = 0
-            for line in lines:
-                if line.replace("\t", "").replace("\n", "") == target:
-                    edit_index = current_index
-                for edited_line in edited_lines:
-                    if edited_line.replace("\t", "").replace("\n", "") == line.replace("\t", "").replace("\n", ""): #the edited line already exists
-                        edited_lines[edited_line] = True
-                current_index += 1
-            for index, line in enumerate(edited_lines):
-                if edited_lines[line] is False:
-                    lines.insert(edit_index + index + 1, line)
-            with open(game_info_file_path, "w") as f:
-                f.writelines(lines)
+                current_index = 0
+                edit_index = 0
+                for line in lines:
+                    if line.replace("\t", "").replace("\n", "") == target:
+                        edit_index = current_index
+                    for edited_line in edited_lines:
+                        if edited_line.replace("\t", "").replace("\n", "") == line.replace("\t", "").replace("\n", ""): #the edited line already exists
+                            edited_lines[edited_line] = True
+                    current_index += 1
+                for index, line in enumerate(edited_lines):
+                    if edited_lines[line] is False:
+                        lines.insert(edit_index + index + 1, line)
+                with open(game_info_file_path, "w") as f:
+                    f.writelines(lines)
+            else:
+                QMessageBox.information(self, "Attention!", "Could not find gameinfo.gi file! Mods will not appear in game without it. Mods have not been loaded.")
+                return False
 
             #remove all the currently installed mods
             shutil.rmtree(self.current_addon_directory)
