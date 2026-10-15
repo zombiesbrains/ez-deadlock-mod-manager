@@ -636,9 +636,6 @@ class ModManager(QWidget):
             mod_list_index = 0
             mod_count = self.list_widget.count()
             while mod_list_index < mod_count:
-                if written_mod_count >= MAXIMUM_MOD_AMOUNT:
-                    QMessageBox.information(self, "Attention!", "Maximum mod limit reached! Only the first 99 enabled mods have been loaded.")
-                    break
                 item_widget = self.list_widget.itemWidget(self.list_widget.item(mod_list_index))
                 if item_widget.toggle.isChecked():
                     try:
@@ -654,6 +651,9 @@ class ModManager(QWidget):
                         item_widget.delete_self()
                         mod_count -= 1
                 mod_list_index += 1
+                if written_mod_count >= MAXIMUM_MOD_AMOUNT:
+                    QMessageBox.information(self, "Attention!", "Maximum mod limit reached! Only the first 99 enabled mods have been loaded.") #fix this to happen after
+                    break
             if missing_file_paths_alert:
                 QMessageBox.information(self, "Attention!", "The mod manager couldn't find some of your mod(s) (possibly deleted VPKs or changed filepaths). " \
                 "They have been removed from the mod list, and the new configuration has been saved. All other selected mods have been loaded.")

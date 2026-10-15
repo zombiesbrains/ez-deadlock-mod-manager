@@ -25,7 +25,7 @@ Sound event files are mostly optional, but useful for changing things like volum
 6. Now your compiled files will be in /Counter Strike Global Offensive/game/csgo_addons/addon_name/sounds/ and
 /Counter Strike Global Offensive/game/csgo_addons/addon_name/soundevents/. Create the same folder structure for the replaced files as the vpk you found them in (as seen in Source 2 Viewer) within the /input/ folder, and copy over the files you just compiled to the correct locations. Run the vpkmaker.py file, and the created mod will be titled mod.vpk.
 
-Remember that before compilation, your sound files will be .mp3 or wav, and afterwards will be .vsnd_c. Sound event files will also go from .vsndevts to .vsndevts_c. You must use the compiled files to create the vpk.
+Remember that before compilation, your sound files will be .mp3 or wav, and afterwards will be .vsnd_c. Sound event files will also go from .vsndevts to .vsndevts_c. You must use the compiled files to create the vpk. Plaintext files don't require compilation.
 
 Now you can add the newly created mod to the game via the mod manager.
 

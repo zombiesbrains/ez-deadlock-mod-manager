@@ -4,12 +4,11 @@
 
 - [ ] FEATURE: Add alphabetical sort for installed mods
 - [ ] FEATURE: Remove all mods/turn off mod buttons (either from addons directory or change gameinfo.gi file)
-- [ ] FEATURE: Show warning when 99+ mods enabled -> we already only add 99 mods (and display a message when doing so), so this is just extra but still useful
 - [ ] FEATURE: Add drag and drop for files straight from file explorer
 - [ ] FIX: Need to detect the other rar tools (like 7z.exe) using RAR_TOOL_REGISTRY_PATHS, and find a way on linux (setting the rar tool manually works however)
-- [ ] FIX: Add highlight for installed mod search (the search works + it scrolls to the correct item, but the highlight currently isn't visible)
+- [ ] FIX: Make currently selected mod highlight a different colour
 - [ ] FEATURE: Add multiple profiles, using multiple settings json files
-- [ ] FIX: Rar tool isn't set in settings file when it is detected if blank
+- [ ] FIX: Rar tool isn't set in settings file when it is detected if blank (unrar is automatically found and works though)
 
 <h2>deadlock_mod_browser.py</h2>
 
