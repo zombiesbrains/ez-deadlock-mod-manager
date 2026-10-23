@@ -32,6 +32,10 @@ After this your executable should lie in the main directory.
 
 Check the /vpkmaker/ directory to create your own sound mods.
 
+# Mods with broken camera (City Never Sleeps update)
+
+See the /camera_fix/ submodule.
+
 # Special Thanks
 
 Thanks to Valve for making the game, and to GameBanana and all its users for sharing all these mods. Thanks to Google for the font (Roboto). I don't own Deadlock or the Deadlock icon.
