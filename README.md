@@ -4,7 +4,7 @@ A project built in PyQt that handles your mods for Deadlock all in the same plac
 
 # Important Considerations and Dependencies
 
-This project uses selenium webdrivers and requests as the main mode of fetching and downloading mods from GameBanana. Because of this, downloading mods will only work if at least one of Chrome, Firefox, or Edge is installed.
+This project uses selenium webdrivers and requests as the main mode of fetching and downloading mods from GameBanana. Because of this, downloading mods will only work if at least one of Chrome, Firefox, or Edge is installed. It is also important that the dependencies are up to date if you want to download mods using this application.
 
 Chrome: https://www.google.com/intl/en/chrome/
 
@@ -24,7 +24,7 @@ This program can obviously be run with python, but if you are looking for the bi
 ```
 cd path/to/EZDeadlockModManager/
 pip install -r requirements.txt
-pyinstaller EZDeadlockModManager.py --icon="./resources/icon.ico" --add-data=resources:resources --distpath . --onefile --noconsole 
+pyinstaller EZDeadlockModManager.py --icon="./resources/icon.ico" --add-data=resources:resources --distpath . --onefile --collect-submodules=selenium --noconsole 
 ```
 After this your executable should lie in the main directory.
 

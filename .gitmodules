@@ -1,0 +1,3 @@
+[submodule "camera_fix"]
+	path = camera_fix
+	url = https://gist.github.com/zombiesbrains/94eaa41704b2da9cacb10bc58363d67e
